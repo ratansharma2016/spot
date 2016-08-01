@@ -55,3 +55,7 @@ passport-init.js
 1. Scroll the mouse over the button coloured with two different pattern one shows empty table and other shows occupied seat.
 2. Type the name of developer in the input box provided in that section.
 ```
+##Deletion of developer data
+```
+1. Click on del link of existing developer
+```
