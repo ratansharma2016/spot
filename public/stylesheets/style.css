@@ -16,7 +16,7 @@ clear: both;
 }
 .table_group li{
     display: inline;
-    background-color: green;
+    background-color: #3CB371;
     padding: 15px;
     float: left;
     margin-left: 18px;
@@ -36,16 +36,16 @@ clear: both;
 }
 .table_member li a{
 	text-decoration: none;
-    background-color: yellow;
-    color:yellow;
+    background-color: #DDA0DD;
+    color:#DDA0DD;
     width: 40px;
     padding: 8px;
     text-align: center;
-    box-shadow: 4px 4px 4px red;
+    box-shadow: 4px 4px 4px rgba(255, 255, 255, 0.38);
 }
 a.empty{
-    background-color: grey !important;
-    color:grey !important;	
+    color: #8FBC8F !important;
+    background-color: #8FBC8F !important;
 }
 .btn-file {
     position: relative;
