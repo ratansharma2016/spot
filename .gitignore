@@ -1,0 +1,13 @@
+node_modules/
+npm-debug.log
+
+# IDEs
+.idea/
+
+
+# Misc
+tmp/
+
+# Mac OSX Finder files.
+**/.DS_Store
+.DS_Store

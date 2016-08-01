@@ -1,0 +1,48 @@
+<div ng-hide="authenticated">
+<img src="images/home.jpg" style="float:left;margin-right:15px;">
+<p style="line-height: 30px !important;font-size: 18px;text-align: justify;">This system is developed as demo purpose, it is a basic setup of a platform where one can
+view the employee's status and can assign their table no., seat no., project etc. This project might have feature development for enhance the services like chatting with employee to the admin to take advice, performance of employee can be stored according to project on extending schema of database etc.</p>
+<p align="right">Please Login to continue.....</p>
+</div>
+<div ng-if="authenticated" ng-controller="empController as empCtrl">
+<div ng-controller = "profImageCtrl">
+<label class="btn btn-primary" for="my-file-selector">
+    <input file-model="myFile" id="my-file-selector" type="file" style="display:none;" onchange="$('#upload-file-info').html($(this).val());">
+    Browse
+</label>
+<button class="btn btn-primary" ng-click="uploadFile(uptId)">upload</button>
+<span class='label label-info' id="upload-file-info"></span>
+</div>
+<form role="form">
+<table class="table" with="100%">
+<tr class="info">
+<td>Emp Name</td>
+<td>Table No.</td>
+<td>Seat No.</td>
+<td>Current Project</td>
+<td>Team Name</td>
+<td>Designation</td>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr class="danger">
+<td><input type=text class="form-control" ng-model="newEmployee.empName"></td>
+<td><input type=text class="form-control" ng-model="newEmployee.tableNo"></td>
+<td><input type=text class="form-control" ng-model="newEmployee.seatNo"></td>
+<td><input type=text class="form-control" ng-model="newEmployee.currProject"></td>
+<td><input type=text class="form-control" ng-model="newEmployee.teamName"></td>
+<td><input type=text class="form-control" ng-model="newEmployee.designation"></td>
+<td colspan="2"><button ng-hide="btn" ng-click="employee()">Add</button><button ng-show="btn" ng-click="update(uptId)">Update</button></td>
+</tr>
+<tr class="success" ng-repeat="employee in employees | orderBy : 'tableNo'">
+<td>{{employee.empName}}</td>
+<td>{{employee.tableNo}}</td>
+<td>{{employee.seatNo}}</td>
+<td>{{employee.currProject}}</td>
+<td>{{employee.teamName}}</td>
+<td>{{employee.designation}}</td>
+<td><a href="#/" ng-click="remove(employee._id)" ng-show="current_user">Del</a></td>
+<td><a href="#/" ng-click="edit(employee._id)" ng-show="current_user">Edit</a></td>
+</tr>
+</table>
+</form>
+</div>

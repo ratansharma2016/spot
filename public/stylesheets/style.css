@@ -1,0 +1,81 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+input{
+	width: 146px;
+}
+.table_group{
+clear: both;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 20px;
+}
+.table_group li{
+    display: inline;
+    background-color: green;
+    padding: 15px;
+    float: left;
+    margin-left: 18px;
+    width: 265px;
+    text-align: center;
+    font-weight: bold;
+}
+.table_member{
+	margin: 0px;
+	padding: 0px;
+}
+
+.table_member li {
+    width: 40px;
+    padding: 8px;
+    text-align: center;
+}
+.table_member li a{
+	text-decoration: none;
+    background-color: yellow;
+    color:yellow;
+    width: 40px;
+    padding: 8px;
+    text-align: center;
+    box-shadow: 4px 4px 4px red;
+}
+a.empty{
+    background-color: grey !important;
+    color:grey !important;	
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.empData{
+	    width: 260px;
+    position: absolute;
+    background-color: pink;
+    padding: 10px;
+    box-shadow: 6px 10px 11px grey;
+}
+.empData table{
+	text-align: right;
+}
+.empData img{
+	margin-right:5px;
+}
