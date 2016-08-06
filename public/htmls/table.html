@@ -1,39 +1,29 @@
-<div ng-if="authenticated" ng-controller="empController as empCtrl">
-<h3>Watch Employee Status</h3>
+<div ng-if="authenticated" ng-controller="tableController as empCtrl">
+  <h3>Watch Employee Status</h3>
   <input type=text ng-model="search.empName" ngMinlength=1>
 <ul class="table_group">
-  <li ng-repeat="(key, value) in employees | groupBy: 'tableNo'">
-    Table: {{ key }}
+  <li ng-repeat="(key,tables) in newTables | orderBy : 'tableNo'">
+    Table : {{key+1}}
     <ul class="table_member">
-      <li ng-if="value.length===3" ng-repeat="a in [1]">
-        <a name="" class="empty" ng-show="a">{{a}}</a>
-      </li>
-      <li ng-if="value.length===2" ng-repeat="a in [1,2]">
-        <a name="" class="empty" ng-show="a">{{a}}</a>
-      </li>
-      <li ng-if="value.length===1" ng-repeat="a in [1,2,3]">
-        <a name="" class="empty" ng-show="a">{{a}}</a>
-      </li>
-      <li ng-repeat="employee in value | orderBy : 'seatNo' | filter:search.empName">
-        
-        <a name="" ng-mouseover="dis=true" ng-mouseleave="dis=false">{{employee.seatNo}}</a>
-        	<div class="empData" ng-show="search.empName || dis ">
+      <li ng-repeat="table in tables | filter:search.empName" ng-class="{'seat':table.active}"><a name="" ng-mouseover="dis=true" ng-mouseleave="dis=false">{{table.seatNo}}</a>
+          <div class="empData" ng-show="search.empName || dis " ng-if="!table.active">
             <table>
               <tr>
-                <td><img ng-src="images/{{employee.empUrl}}" width=100 height=100 alt="Please Upload"></td>
-                <td>{{employee.empName}}<br/>{{employee.designation}}</td>
+                <td><img ng-src="images/{{table.empUrl}}" width=100 height=100 alt="Please Upload"></td>
+                <td>{{table.empName}}<br/>{{table.designation}}</td>
               </tr>
               <tr>
-                <td colspan=2>Team <br/>{{employee.teamName}}</td>
+                <td colspan=2>Team <br/>{{table.teamName}}</td>
               </tr>
               <tr>
-                <td colspan=2>Current Project: <br/>{{employee.currProject}}</td>
+                <td colspan=2>Current Project: <br/>{{table.currProject}}</td>
               </tr>
             </table>
           </div>
-      </li>
-      
+        </li>
     </ul>
   </li>
 </ul>
+
 </div>
+

@@ -10,8 +10,8 @@ var userSchema = new mongoose.Schema({
 var employeeSchema=new mongoose.Schema({
 	empName:String,
 	empUrl:String,
-	tableNo:String, 
-	seatNo:String,
+	tableNo:{type: Number}, 
+	seatNo:{type: Number},
 	currProject:String,
 	teamName:String,
 	designation:String,

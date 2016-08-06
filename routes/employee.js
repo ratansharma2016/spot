@@ -98,13 +98,28 @@ router.post('/employees/profimage/:id',upload.single('file'),function(req,res,ne
 		return res.json(employee);
 });
 });
+
+//To group the seat by table
+
+router.get('/employees/tab/table',function(req,res,next){
+	Employee.aggregate([ {$group:{_id:"$tableNo",table:{$push:"$$ROOT"}}},{$sort:{"_id":1}} ],function(err,result){
+		if(err){
+			return res.send(500,err);
+		}
+		console.log(result);
+		return res.send(result);
+		//console.log(result);
+	});
+});
+
+
+
 // To populate all the employess
 
 
 router.route('/employees')
 
 .get(function(req,res){
-
 	Employee.find(function(err,employee){
 		if(err)
 		{

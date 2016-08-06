@@ -19,6 +19,7 @@ app.controller('authController',['$scope','$http','$location','$rootScope','$loc
 			$localStorage.authenticated=true;
 			$rootScope.authenticated=$localStorage.authenticated;
 			$localStorage.current_user=data.user.username;
+			$rootScope.current_user=$localStorage.current_user;
 			$location.path('/');
 		});
 	};
@@ -27,6 +28,8 @@ app.controller('authController',['$scope','$http','$location','$rootScope','$loc
 			$http.get('/auth/signout').success(function(){
 			$localStorage.authenticated=false;
 			$rootScope.authenticated=$localStorage.authenticated;
+			$localStorage.current_user='';
+			$rootScope.current_user=$localStorage.current_user;
 			$location.path('/');
 		});
 	};
